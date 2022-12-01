@@ -1,0 +1,36 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Ventas</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado de ventas</h5>
+    <div class="my-2 text-left">
+   
+    </div>
+    <div *ngIf="ventas?.length == 0" class="alert alert-info">
+      No hay registros en la base de datos!
+    </div>
+    <table class="table table-bordered table-striped" *ngIf="ventas?.length>0">
+      <thead>
+        <tr>
+          <th >#</th>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>total</th>          
+          <th >ver detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venta of ventas">  
+          <td>{{venta.id}}</td>                
+          <td>{{ venta.cliente.nombre | uppercase }}</td>          
+          <td>{{ venta.fecha | date:"EEEE dd, MMMM yyyy"}}</td>
+          <td>{{ venta.total  }}</td>                    
+          <td >
+            <button class="btn btn-primary btn-sm" type="button"
+            (click)="abrirModal(venta)" >ver</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <paginator-nav *ngIf="paginador" [paginador]="paginador"></paginator-nav>
+  </div>
+</div>
