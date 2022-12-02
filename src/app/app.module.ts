@@ -24,9 +24,9 @@ import { DetalleVentaComponent } from './ventas/detalle-venta/detalle-venta.comp
 registerLocaleData(localeES, 'es');
 
 const routes: Routes = [
-  { path: '', redirectTo: '/ventas', pathMatch: 'full' },    
+  { path: '', redirectTo: '/ventas', pathMatch: 'full' },
   { path: 'ventas', component: VentasComponent },
-  { path: 'ventas/page/:page', component: VentasComponent },  
+  { path: 'ventas/page/:page', component: VentasComponent },
 ];
 
 @NgModule({
