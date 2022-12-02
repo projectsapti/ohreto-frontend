@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Cliente } from '../clientes/cliente';
 import { Venta } from '../ventas/models/venta';
 import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
@@ -29,7 +28,7 @@ export class VentasService {
         return response;
       }),
       tap(response => {
-        (response.content as Cliente[]).forEach(cliente => console.log(cliente));
+        (response.content as Venta[]).forEach(cliente => console.log(cliente));
       }));
   }
 
